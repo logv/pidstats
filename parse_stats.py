@@ -3,6 +3,12 @@ import json
 
 is_header = False
 fields = None
+
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("interval", help="interval stats are being collected at")
+args = parser.parse_args()
+
 while True:
   line = sys.stdin.readline()
   if not line:
@@ -36,4 +42,5 @@ while True:
 
 
         sample = dict(zip(fields, values))
+        sample["weight"] = args.interval
         print json.dumps(sample)

@@ -13,7 +13,7 @@ LAST_DIGEST=$(date +%s)
 
 iter=0
 while [[ 1 ]]; do 
-  pidstat ${FLAGS} -h ${INTERVAL} 1 | python parse_stats.py | sybil ingest ${SYBIL_FLAGS} 2>/dev/null
+  pidstat ${FLAGS} -h ${INTERVAL} 1 | python parse_stats.py ${INTERVAL} | sybil ingest ${SYBIL_FLAGS} 2>/dev/null
   ex=$?
   if [ $ex -ne 0 ]; then
     break
