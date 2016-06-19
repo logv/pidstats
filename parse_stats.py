@@ -67,7 +67,7 @@ def process_line(line):
       values = line.split()
       if fields:
         sample = parse_sample(fields, values)
-        sample["weight"] = args.interval
+        sample["weight"] = int(args.interval)
 
         combine_or_update(sample)
 
