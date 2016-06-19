@@ -7,7 +7,7 @@ INTERVAL=15
 FLAGS="-u -r"
 
 DB_DIR="./db"
-SYBIL_FLAGS="-table pidstat -dir ${DB_DIR}"
+SYBIL_FLAGS="-table perf@pidstats -dir ${DB_DIR}"
 
 LAST_DIGEST=$(date +%s)
 
