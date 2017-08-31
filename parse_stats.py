@@ -1,5 +1,3 @@
-
-
 import sys
 import json
 
@@ -30,7 +28,10 @@ def combine_or_update(sample):
     else:
         previous_samples[command] = sample
 
+
+ADD_ARGS=True
 def parse_sample(fields, values):
+
     sample = zip(fields, values)
     for i,f in enumerate(fields):
       val = values[i]
@@ -47,6 +48,14 @@ def parse_sample(fields, values):
 
 
     sample = dict(zip(fields, values))
+
+    if ADD_ARGS:
+        cmd_val = []
+        while len(values) > len(fields):
+            cmd_val.append(values.pop())
+
+        sample["args"] = " ".join(reversed(cmd_val))
+
     return sample
 
 
