@@ -16,7 +16,7 @@ def print_previous():
         print json.dumps(previous_samples[command])
 
 def combine_or_update(sample):
-    command = sample["command"]
+    command = "%s:%s" % (sample["command"], sample.get("args", ""))
     if command in previous_samples:
         prev_sample = previous_samples[command]
 
